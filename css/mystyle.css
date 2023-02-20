@@ -1,0 +1,12 @@
+/* Add your own CSS under here */
+footer{
+    background-color: black;
+    color: aliceblue ;
+}
+body{
+    background-color:burlywood ;
+}
+
+.error{
+    color:red;
+}
