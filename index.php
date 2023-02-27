@@ -2,40 +2,39 @@
 require_once('database.php');
 
 // Get products
-$queryProducts = 'SELECT * FROM products';
-$statement = $db->prepare($queryProducts);
+$querySchools = 'SELECT * FROM schools';
+$statement = $db->prepare($querySchools);
 $statement->execute();
-$products = $statement->fetchAll();
+$schools = $statement->fetchAll();
 $statement->closeCursor();
 //print_r($products);
 ?>
 <?php include 'includes/header.php';?>
 <main class="container">
   <div class="starter-template text-center">
-    <h1>Hello world</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+    <h1>Academic Schools</h1>
+    <p class="lead"> At DkIT, our teaching and research experience is divided across 4 Academic Schools of Business & Humanities; Engineering; Health & Science and Informatics & Creative Arts. You will be part of one of these Schools and your studies will usually include a combination of tutorials, lectures, lab classes, group work, presentations, student projects and work placement.</p>
   </div>
     <section>
         <!-- display a table of products -->
         <div class="table-responsive">
         <table class="table table-striped">
             <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Color</th>
-                <th>Year Of Manufacture</th>
-                <th>Price</th>
-                
+                <th>School Name</th>
+                <th>School Phone</th>
+                <th>School Email</th>
+                <th>Head of School</th>
+                <th>Year Of Establishment</th>
             </tr>
 
-            <?php foreach ($products as $product) : ?>
+            <?php foreach ($schools as $school) : ?>
             <tr>
-                <td><?php echo $product['productCode']; ?></td>
-                <td><?php echo $product['productName']; ?></td>
-                <td><?php echo $product['productColor']; ?></td>
-                <td><?php echo $product['productYear']; ?></td>
-                <td class="right"><?php echo $product['listPrice']; ?></td>
                 
+                <td><?php echo $school['School_Name']; ?></td>
+                <td><?php echo $school['School_Phone']; ?></td>
+                <td><?php echo $school['School_Email']; ?></td>
+                <td><?php echo $school['School_Head']; ?></td>
+                <td><?php echo $school['Year_of_Establishment']; ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
