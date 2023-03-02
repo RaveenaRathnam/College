@@ -12,33 +12,32 @@ $statement->closeCursor();
 <?php include 'includes/header.php';?>
 <main class="container">
   <div class="starter-template text-center">
-    <h1>Academic Schools</h1>
-    <p class="lead"> At DkIT, our teaching and research experience is divided across 4 Academic Schools of Business & Humanities; Engineering; Health & Science and Informatics & Creative Arts. You will be part of one of these Schools and your studies will usually include a combination of tutorials, lectures, lab classes, group work, presentations, student projects and work placement.</p>
+    <h1 class="m-2">Academic Schools</h1>
+    <p class="lead m-5"> At DkIT, our teaching and research experience is divided across 4 Academic Schools of Business & Humanities; Engineering; Health & Science and Informatics & Creative Arts. You will be part of one of these Schools and your studies will usually include a combination of tutorials, lectures, lab classes, group work, presentations, student projects and work placement.</p>
   </div>
     <section>
-        <!-- display a table of products -->
-        <div class="table-responsive">
-        <table class="table table-striped">
-            <tr>
-                <th>School Name</th>
-                <th>School Phone</th>
-                <th>School Email</th>
-                <th>Head of School</th>
-                <th>Year Of Establishment</th>
-            </tr>
+         
 
             <?php foreach ($schools as $school) : ?>
-            <tr>
                 
-                <td><?php echo $school['School_Name']; ?></td>
-                <td><?php echo $school['School_Phone']; ?></td>
-                <td><?php echo $school['School_Email']; ?></td>
-                <td><?php echo $school['School_Head']; ?></td>
-                <td><?php echo $school['Year_of_Establishment']; ?></td>
-            </tr>
+                <div class="card mt-auto" >
+                <div class="row ">
+                <div class="col-md-6 order-2 order-md-1">
+                <img src="<?php echo $school['School_Image'];?>"  class="img-fluid"/>
+                </div>
+                <div class="col-md-6 order-1 order-md-2">
+                <div class="card-body"> 
+                <h5 class="card-title text-right"><?php echo $school['School_Name']; ?>  </h5>
+                <p class="card-text">Phone:<?php echo $school['School_Phone']; ?> </p>
+                <p class="card-text">Email:<?php echo $school['School_Email']; ?> </p>
+                <p class="card-text">Head Of School:<?php echo $school['School_Head']; ?>  </p>
+                <p class="card-text">Year Of Establishment<?php echo $school['Year_of_Establishment']; ?> </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                </div>
+                </div>
             <?php endforeach; ?>
-        </table>
-            </div>
+        </div>
     </section>
 
 </main><!-- /.container -->
