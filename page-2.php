@@ -2,9 +2,10 @@
 require_once('database.php');
 
 // Get products
-$queryCourses = 'SELECT * FROM courses 
+$queryCourses = 'SELECT Department_Name,Course_Name,Course_Type,Course_Level,Course_Fee FROM courses 
 JOIN departments ON courses.Department_ID = departments.Department_ID
-JOIN schools ON departments.School_ID = schools.School_ID';
+JOIN schools ON departments.School_ID = schools.School_ID
+';
 $statement = $db->prepare($queryCourses);
 $statement->execute();
 $courses = $statement->fetchAll();
@@ -21,7 +22,9 @@ $statement->closeCursor();
         
 
             <?php foreach ($courses as $course) : ?>
-            <div class="card mt-auto " style="width: 18rem;" >
+              <div>
+            <div class="card mt-auto">
+            <h4 class="card-title text-right"><?php echo $course['Department_Name']; ?></h4>
             <div class="card-body"> 
             <h5 class="card-title text-right"><?php echo $course['Course_Name']; ?></h5>
             <p class="card-text"> <?php echo $course['Course_Type']; ?></p>
@@ -30,7 +33,7 @@ $statement->closeCursor();
             </div>
             </div>
             <?php endforeach; ?>
-         
+            </div>
             </div> 
     </section>
 

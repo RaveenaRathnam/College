@@ -16,16 +16,7 @@ $statement->closeCursor();
     <p class="lead m-5">Here at DKIT we have different departments under different Schools.Each and every department has specialized staff and they help students in achiving their goals.</p>
   </div>
     <section>
-        <!-- display a table of products -->
-        <!-- <div class="table-responsive">
-        <table class="table table-striped">
-            <tr>
-                <th>Department Name</th>
-                <th>Department Phone</th>
-                <th>Department Email</th>
-                <th>Head of Department</th>
-                <th>Year Of Establishment</th>
-            </tr> -->
+         
 
             <?php foreach ($departments as $department) : ?>
                 <div class="card mt-auto" >

@@ -14,29 +14,29 @@
 <main class="container">
   <div class="starter-template text-center ">
   <h1>Contact us</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+  <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
   </div>
   
-<form class="row g-3" method="POST" name="contactform" action="contact-form-handler.php"> 
+<form class="row g-3" method="POST" name="contactform" action="contact-form-handler.php"  enctype="multipart/form-data"> 
 
 <div class="col-md-6">
 <p>
-<label for='fname'class="form-label">First Name:</label> <br>
-<input type="text" class="form-control" placeholder="John" aria-label="First name" required>
+<label for='fname'class="form-label">First Name:</label><span id="fname_err"></span> <br>
+<input type="text" pattern="[a-zA-Z ,.'-]{1,32}" name="fname" id="fname" class="form-control" placeholder="John" aria-label="First name" required  onBlur="fname_validation();">
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
 <label for='lname'class="form-label">Last Name:</label> <br>
-<input type="text" class="form-control" placeholder="McDonnel" aria-label="Last name" required>
+<input type="text" pattern="[a-zA-Z ,.'-]{1,32}" name="lname"id="lname" class="form-control" placeholder="McDonnel" aria-label="Last name" required>
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
 <label for='email'class="form-label">Email Address:</label>
-<input type="text" name="email" placeholder="john123@gmail.com"  class="form-control" required> <br>
+<input type="text"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" placeholder="john123@gmail.com"  class="form-control" required> <br>
 </p>
 </div>
 
@@ -48,21 +48,21 @@
 </div>
 
 <div class="col-12">
-<label for="inputAddress2" class="form-label">Address:</label>
-<input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+<label for="address" class="form-label">Address:</label>
+<input type="text" class="form-control" name="address" placeholder="Apartment, studio, or floor" required>
 </div>
 
 <div class="col-md-6">
 <p>
 <label for="birthdate" class="form-label">Birthdate:</label><br>
-<input type="date"  class="form-control"id="birthdate" name="birthdate"><br>
+<input type="date"  pattern="\d{4}-\d{2}-\d{2}"  class="form-control"id="birthdate" name="birthdate" required><br>
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
-<label for="resume" class="form-label">Upload Resume:</label>
-<input type="file" class="form-control" id="resume" name="resume">	
+<label for="resume" class="form-label">Upload Resume:word or pdf</label>
+<input type="file" class="form-control" id="resume" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.documen,.pdf" name="resume">	
 </p>
 </div>
 
@@ -137,7 +137,7 @@
 </div>
 
 </form>
-
 </main><!-- /.container -->
+<script src="validation.js"></script>
 <?php include 'includes/footer.php';?>
 <!-- q  aszx -->
