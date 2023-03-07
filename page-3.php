@@ -28,22 +28,22 @@
 
 <div class="col-md-6">
 <p>
-<label for='lname'class="form-label">Last Name:</label> <br>
-<input type="text" pattern="[a-zA-Z ,.'-]{1,32}" name="lname"id="lname" class="form-control" placeholder="McDonnel" aria-label="Last name" required>
+<label for='lname'class="form-label">Last Name:</label><span id="lname_err"></span> <br>
+<input type="text" pattern="[a-zA-Z ,.'-]{1,32}" name="lname"id="lname" class="form-control" placeholder="McDonnel" aria-label="Last name" required onBlur="lname_validation();">
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
-<label for='email'class="form-label">Email Address:</label>
-<input type="text"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" placeholder="john123@gmail.com"  class="form-control" required> <br>
+<label for='email'class="form-label">Email Address:</label><span id="email_err"></span><br>
+<input type="text"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" id="email" placeholder="john123@gmail.com"  class="form-control" required onBlur="email_validation();"> 
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
-<label for="phone"class="form-label">Phone:</label><br>
-<input type="tel" name="phone" placeholder="1234567890" class="form-control" pattern="[0-9]{10}" required><br>
+<label for="phone"class="form-label">Phone:</label><br><span id="phone_err"></span><br>
+<input type="tel" name="phone" id="phone" placeholder="1234567890" class="form-control" pattern="[0-9]{10}" required onBlur="phone_validation();">
 </p>
 </div>
 

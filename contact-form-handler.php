@@ -53,10 +53,10 @@ if( empty($errors))
 {
         $to = $myemail;
         $email_subject = "Contact form submission: $name";
-        $email_body = "You have received a new message. ".
-        " Here are the details:\n First Name: $fname \n Last Name: $lname \n Email: $email_address \nPhone: $phone \nAddress: $address \nBirthdate: $bithdate 
+        $initMessage = "You have received a new message. ".
+        " Here are the details:\n First Name: $fname \n Last Name: $lname \n Email: $email_address \nPhone: $phone \nAddress: $address \nBirthdate: $birthdate 
          \nAdmission Type: $admissions \nGender: $gender \nTuition Budget: $tuition_budget 
-        \n Receive updates: $updates \n Message: \n $message  \n Resume:";
+        \n Receive updates: $updates \n Message: \n $message  \n Resume:please see the attachment.";
 
          // Attach resume file if uploaded
     if (isset($resume) && $resume['error'] == UPLOAD_ERR_OK) {
@@ -69,17 +69,21 @@ if( empty($errors))
         $boundary = md5(time());
         $headers .= 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-Type: multipart/mixed; boundary="' . $boundary . '"' . "\r\n";
-        $message = "--" . $boundary . "\r\n" .
+        $email_body = "--" . $boundary . "\r\n" .
                    "Content-Type: text/plain; charset=ISO-8859-1\r\n" .
                    "Content-Transfer-Encoding: 7bit\r\n\r\n" .
-                   $message . "\r\n\r\n" .
+                   $initMessage . "\r\n\r\n" .
                    "--" . $boundary . "\r\n" .
                    "Content-Type: " . $file_type . "; name=\"" . $file_name . "\"\r\n" .
                    "Content-Transfer-Encoding: base64\r\n" .
                    "Content-Disposition: attachment; filename=\"" . $file_name . "\"\r\n\r\n" .
                    $file_content . "\r\n\r\n" .
                    "--" . $boundary . "--";
-    }
+        
+     }
+    //   else {
+    //     $email_body = $initMessage;
+    // }
 
         mail($to,$email_subject,$email_body,$headers);
         //redirect to the 'thank you' page

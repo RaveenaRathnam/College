@@ -1,12 +1,13 @@
-//user id validation starts
+//user first name validation starts
 function fname_validation(){
     'use strict';
     var fname_name = document.getElementById("fname");
     var fname_value = document.getElementById("fname").value;
     var fname_length = fname_value.length;
-    if(fname_length==0)
+    var letters = /^[a-z ,.'-]+$/i ;
+    if(fname_length==0 || !fname_value.match(letters))
     {
-    document.getElementById('fname_err').innerHTML = 'First name must be filled out';
+    document.getElementById('fname_err').innerHTML = 'Please enter a valid first name.';
     fname_name.focus();
     document.getElementById('fname_err').style.color = "#FF0000";
     }
@@ -16,26 +17,86 @@ function fname_validation(){
     document.getElementById('fname_err').style.color = "#00AF33";
     }
     }
-    //user id validation ends
-    //password validation starts
-    function passwd_validation(){
+    //user last name validation starts
+    function lname_validation(){
+        'use strict';
+        var lname_name = document.getElementById("lname");
+        var lname_value = document.getElementById("lname").value;
+        var lname_length = lname_value.length;
+        var letters = /^[a-z ,.'-]+$/i ;
+        if(lname_length==0 || !lname_value.match(letters))
+        {
+        document.getElementById('lname_err').innerHTML = 'Please enter a valid last name.';
+        lname_name.focus();
+        document.getElementById('lname_err').style.color = "#FF0000";
+        }
+        else
+        {
+        document.getElementById('lname_err').innerHTML = 'Vaild!';
+        document.getElementById('lname_err').style.color = "#00AF33";
+        }
+        }
+    //first and last name validation ends
+    //email validation starts
+    function email_validation(){
     'use strict';
-    var passid_name = document.getElementById("passid");
-    var passid_value = document.getElementById("passid").value;
-    var passid_length = passid_value.length;
-    if(passid_length<6)
+    var email_name = document.getElementById("email");
+    var email_value = document.getElementById("email").value;
+    var email_length = email_value.length;
+    var letters = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i ;
+    if(email_length==0 || !email_value.match(letters))
     {
-    document.getElementById('passwd_err').innerHTML = 'Password must be at least 6 chracters long';
-    passid_name.focus();
-    document.getElementById('passwd_err').style.color = "#FF0000";
+    document.getElementById('email_err').innerHTML = 'Please enter a valid email address.';
+    email_name.focus();
+    document.getElementById('email_err').style.color = "#FF0000";
     }
     else
     {
-    document.getElementById('passwd_err').innerHTML = 'Valid password';
-    document.getElementById('passwd_err').style.color = "#00AF33";
+    document.getElementById('email_err').innerHTML = 'Valid email';
+    document.getElementById('email_err').style.color = "#00AF33";
     }
     }
-    //password validation ends
+    //email validation ends
+     //phone validation starts
+     function phone_validation(){
+        'use strict';
+        var phone_name = document.getElementById("phone");
+        var phone_value = document.getElementById("phone").value;
+        var phone_length = phone_value.length;
+        var letters =/^[0-9]{10}$/;
+        if(phone_length==0 || !phone_value.match(letters))
+        {
+        document.getElementById('phone_err').innerHTML = 'Please enter a valid phone number.';
+        phone_name.focus();
+        document.getElementById('phone_err').style.color = "#FF0000";
+        }
+        else
+        {
+        document.getElementById('phone_err').innerHTML = 'Valid phone number.';
+        document.getElementById('phone_err').style.color = "#00AF33";
+        }
+        }
+        //phone validation ends
+         //address validation starts
+     function address_validation(){
+        'use strict';
+        var address_name = document.getElementById("address");
+        var address_value = document.getElementById("address").value;
+        var address_length = address_value.length;
+        
+        if(address_length==0 || !address_value.match(letters))
+        {
+        document.getElementById('phone_err').innerHTML = 'Please enter a valid phone number.';
+        phone_name.focus();
+        document.getElementById('phone_err').style.color = "#FF0000";
+        }
+        else
+        {
+        document.getElementById('phone_err').innerHTML = 'Valid phone number.';
+        document.getElementById('phone_err').style.color = "#00AF33";
+        }
+        }
+        //address validation ends
     //user name validation starts
     function username_validation(){
     'use strict';

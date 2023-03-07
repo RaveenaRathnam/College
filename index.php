@@ -32,7 +32,7 @@ $statement->closeCursor();
                 <p class="card-text">Email:<?php echo $school['School_Email']; ?> </p>
                 <p class="card-text">Head Of School:<?php echo $school['School_Head']; ?>  </p>
                 <p class="card-text">Year Of Establishment<?php echo $school['Year_of_Establishment']; ?> </p>
-                <a href="page-1.php?school_id=<?php echo $school['id']; ?>"><?php echo $school['name']; ?></a>
+                <a href="#" class="btn btn-primary">View Departments</a>
                  </div>
                 </div>
                 </div>
