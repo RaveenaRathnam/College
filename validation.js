@@ -77,116 +77,70 @@ function fname_validation(){
         }
         }
         //phone validation ends
-         //address validation starts
-     function address_validation(){
+        //birthdate validation starts
+        function birthdate_validation(){
+            'use strict';
+            var  birthdate_name = document.getElementById("birthdate");
+            var  birthdate_value = document.getElementById("birthdate").value;
+            var  birthdate_length = birthdate_value.length;
+            var birthdate = new Date(birthdate_value);
+            var today = new Date();
+            var age = today.getFullYear() - birthdate.getFullYear();
+            if(birthdate > today || birthdate_length==0)
+            {
+            document.getElementById('birthdate_err').innerHTML = 'Please enter a valid date of birth.';
+            birthdate_name.focus();
+            document.getElementById('birthdate_err').style.color = "#FF0000";
+            }
+            else if (age < 18 || age > 45) 
+            {
+            document.getElementById('birthdate_err').innerHTML = 'Unfortunately, only applicants of age 18-45 are eligible';
+            birthdate_name.focus();
+            document.getElementById('birthdate_err').style.color = "#FF0000";
+            } 
+            else
+            {
+            document.getElementById('birthdate_err').innerHTML = 'Valid date of birth';
+            document.getElementById('birthdate_err').style.color = "#00AF33";
+            }
+            }
+        //birthdate validation ends
+    //resume validation starts
+    
+    function resume_validation(){
         'use strict';
-        var address_name = document.getElementById("address");
-        var address_value = document.getElementById("address").value;
-        var address_length = address_value.length;
-        
-        if(address_length==0 || !address_value.match(letters))
+        var  resume_name = document.getElementById("resume");
+        var resume_value = document.getElementById("resume").value;
+        var allowed_extensions = /(\.doc|\.docx|\.xml|\.pdf)$/i;
+        if(!allowed_extensions.exec(resume_value))
         {
-        document.getElementById('phone_err').innerHTML = 'Please enter a valid phone number.';
-        phone_name.focus();
-        document.getElementById('phone_err').style.color = "#FF0000";
+        document.getElementById('resume_err').innerHTML = 'Please upload a file in one of the following formats: .doc, .docx, .xml, .pdf';
+        resume_name.focus();
+        document.getElementById('resume_err').style.color = "#FF0000";
         }
         else
         {
-        document.getElementById('phone_err').innerHTML = 'Valid phone number.';
-        document.getElementById('phone_err').style.color = "#00AF33";
+        document.getElementById('resume_err').innerHTML = 'File uploaded.';
+        document.getElementById('resume_err').style.color = "#00AF33";
         }
         }
-        //address validation ends
-    //user name validation starts
-    function username_validation(){
-    'use strict';
-    var username_name = document.getElementById("username");
-    var username_value = document.getElementById("username").value;
-    var username_length = username_value.length;
-    var letters = /^[0-9a-zA-Z]+$/;
-    if(username_length < 4 || !username_value.match(letters))
-    {
-    document.getElementById('name_err').innerHTML = 'Username must be 4 chracters long and alphanuric chracters only.';
-    username_name.focus();
-    document.getElementById('name_err').style.color = "#FF0000";
-    }
-    else
-    {
-    document.getElementById('name_err').innerHTML = 'Valid username';
-    document.getElementById('name_err').style.color = "#00AF33";
-    }
-    }
-    //user name validation ends
-    //country validation starts
-    function country_validation(){
-    'use strict';
-    var country_name = document.getElementById("country");
-    var country_value = document.getElementById("country").value;
-    if(country_value === "Default" || country_value === "--")
-    {
-    document.getElementById('country_err').innerHTML = 'You must select a country';
-    country_name.focus();
-    document.getElementById('country_err').style.color = "#FF0000";
-    }
-    else
-    {
-    document.getElementById('country_err').innerHTML = 'Country selected.';
-    document.getElementById('country_err').style.color = "#00AF33";
-    }
-    }
-    //country validation ends
-    //zip validation starts
-    function zip_validation(){
-    'use strict';
-    var numbers = /^[0-9]+$/;
-    var zip_name = document.getElementById("zip");
-    var zip_value = document.getElementById("zip").value;
-    var zip_length = zip_value.length;
-    if(!zip_value.match(numbers) || zip_length !== 5)
-    {
-    document.getElementById('zip_err').innerHTML = 'You must enter a ZIP code, which must be numeric and must be at least 5 chracters long.';
-    zip_name.focus();
-    document.getElementById('zip_err').style.color = "#FF0000";
-    }
-    else
-    {
-    document.getElementById('zip_err').innerHTML = 'ZIP code entered';
-    document.getElementById('zip_err').style.color = "#00AF33";
-    }
-    }
-    //zip validation ends
-    //email validation starts
-    function email_validation(){
-    'use strict';
-    var mailformat = /^\w+([\.\-]?\w+)*@\w+([\.\-]?\w+)*(\.\w{2,3})+$/;
-    var email_name = document.getElementById("email");
-    var email_value = document.getElementById("email").value;
-    var email_length = email_value.length;
-    if(!email_value.match(mailformat) || email_length === 0)
-    {
-    document.getElementById('email_err').innerHTML = 'This is not a valid email format.';
-    email_name.focus();
-    document.getElementById('email_err').style.color = "#FF0000";
-    }
-    else
-    {
-    document.getElementById('email_err').innerHTML = 'Valid email format';
-    document.getElementById('email_err').style.color = "#00AF33";
-    }
-    }
-    //email validation ends
-    //gender validation starts
-    function gender_validation(){
-    'use strict';
-    if ( (document.getElementById("msex").checked === false) && (document.getElementById("fsex").checked === false)){
-    document.getElementById('gender_err').innerHTML = 'Please slect a geneder.';
-    document.getElementById('gender_err').style.color = "#FF0000";
-    document.getElementById("msex").checked = true;
-    }
-    else
-    {
-    document.getElementById('gender_err').innerHTML = 'Gender selected';
-    document.getElementById('gender_err').style.color = "#00AF33";
-    }
-    }
-    //gender validation ends
+    //resume validation ends
+     //admissions validation starts
+     function admissions_validation() {
+        'use strict';
+        var admissions_select = document.getElementById("admissions");
+        var selected_option = admissions_select.options[admissions_select.selectedIndex].value;
+        if (selected_option === "") {
+          document.getElementById('admissions_err').innerHTML = 'Please select an option.';
+          admissions_select.focus();
+          document.getElementById('admissions_err').style.color = "#FF0000";
+        } else   {
+            document.getElementById('admissions_err').innerHTML = 'Valid option.';
+            document.getElementById('admissions_err').style.color = "#00AF33";
+            }
+      }
+    //admissions validation ends
+    
+   
+ 
+    

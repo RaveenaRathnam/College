@@ -6,7 +6,6 @@ if(empty($_POST['fname'])  ||
    empty($_POST['lname'])  ||
    empty($_POST['email']) ||
    empty($_POST['phone']) ||
-   empty($_POST['address'])  ||
    empty($_POST['birthdate']) ||
    empty($_FILES['resume']) ||
    empty($_POST['admissions']) ||
@@ -29,7 +28,7 @@ $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $email_address = $_POST['email'];
 $phone = $_POST['phone'];
-$address=$_POST['address'];
+$address=isset($_POST['address']) ? $_POST['address'] : "No address.";
 $admissions = $_POST['admissions'];
 $gender =$_POST['gender'];
 $message = $_POST['message'];

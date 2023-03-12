@@ -42,34 +42,34 @@
 
 <div class="col-md-6">
 <p>
-<label for="phone"class="form-label">Phone:</label><br><span id="phone_err"></span><br>
-<input type="tel" name="phone" id="phone" placeholder="1234567890" class="form-control" pattern="[0-9]{10}" required onBlur="phone_validation();">
+<label for="phone"class="form-label">Phone:</label><span id="phone_err"></span>
+<input type="tel" name="phone" id="phone" placeholder="1234567890" class="form-control" pattern="[0-9]{10}" required onBlur="phone_validation();"><br>
 </p>
 </div>
 
 <div class="col-12">
 <label for="address" class="form-label">Address:</label>
-<input type="text" class="form-control" name="address" placeholder="Apartment, studio, or floor" required>
+<input type="text" class="form-control" name="address" placeholder="Apartment, studio, or floor">
 </div>
 
 <div class="col-md-6">
 <p>
-<label for="birthdate" class="form-label">Birthdate:</label><br>
-<input type="date"  pattern="\d{4}-\d{2}-\d{2}"  class="form-control"id="birthdate" name="birthdate" required><br>
+<label for="birthdate" class="form-label">Birthdate:</label><span id="birthdate_err"></span><br>
+<input type="date" class="form-control" name="birthdate"  id="birthdate" required onBlur="birthdate_validation();"><br>
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
-<label for="resume" class="form-label">Upload Resume:word or pdf</label>
-<input type="file" class="form-control" id="resume" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.documen,.pdf" name="resume">	
+<label for="resume" class="form-label">Upload Resume:</label><span id="resume_err"></span><br>
+<input type="file" class="form-control" name="resume" id="resume" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.documen,.pdf" onBlur="resume_validation();">	
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
-<label for="admissions" class="form-label">Admissions:</label><br>
-<select name="admissions" class="form-select" aria-label="Default select example" required>
+<label for="admissions" class="form-label">Admissions:</label><span id="admissions_err"></span><br>
+<select name="admissions" id="admissions"class="form-select" aria-label="Default select example" required onBlur="admissions_validation();">
 <option value="">Choose an Option</option>
 <option value="Undergraduate Programs">Undergraduate Admissions</option>
 <option value="Graduate Programs">Graduate Admissions</option>
@@ -84,14 +84,14 @@
 <label for="gender" >Gender:</label><br>
 <div class="input-group">
 <div class="input-group-text">
-<input type="radio"  class="form-check-input mt-0" name="gender" value="male" aria-label="Radio button for following text input" required>
+<input type="radio"  class="form-check-input mt-0" name="gender" id="gender" value="male" aria-label="Radio button for following text input" required>
 </div>
 <label for="male"  class="form-control" aria-label="Text input with radio button">Male</label>
 </div>
 
 <div class="input-group" >
 <div  class="input-group-text">
-<input type="radio"  class="form-check-input mt-0" name="gender" value="female" aria-label="Radio button for following text input"required>
+<input type="radio"  class="form-check-input mt-0" name="gender" id="gender" value="female" aria-label="Radio button for following text input"required>
 </div>
 <label for="female"  class="form-control" aria-label="Text input with radio button"">Female</label><br>
 </div>
