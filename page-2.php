@@ -22,7 +22,7 @@ $statement->closeCursor();
         
 
             <?php foreach ($courses as $course) : ?>
-              <div>
+            <div>
             <div class="card mt-auto">
             <h4 class="card-title text-right"><?php echo $course['Department_Name']; ?></h4>
             <div class="card-body"> 
