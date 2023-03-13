@@ -16,8 +16,32 @@ $statement->closeCursor();
     <p class="lead m-5"> At DkIT, our teaching and research experience is divided across 4 Academic Schools of Business & Humanities; Engineering; Health & Science and Informatics & Creative Arts. You will be part of one of these Schools and your studies will usually include a combination of tutorials, lectures, lab classes, group work, presentations, student projects and work placement.</p>
   </div>
     <section>
-         
 
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images\img1.png" class="d-block w-100" style="width:100%;height:600px" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="images\img2.jpg" class="d-block w-100" style="width:100%;height:600px" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="images\img3.jpg" class="d-block w-100"style="width:100%;height:600px" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="images\img4.jpg" class="d-block w-100" style="width:100%;height:600px"alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<br>
             <?php foreach ($schools as $school) : ?>
                 
                 <div class="card mt-auto" >
@@ -32,7 +56,7 @@ $statement->closeCursor();
                 <p class="card-text">Email:<?php echo $school['School_Email']; ?> </p>
                 <p class="card-text">Head Of School:<?php echo $school['School_Head']; ?>  </p>
                 <p class="card-text">Year Of Establishment<?php echo $school['Year_of_Establishment']; ?> </p>
-                <a href="#" class="btn btn-primary">View Departments</a>
+                <a href="page-1.php?q=2" class="btn btn-primary">View Departments</a>
                  </div>
                 </div>
                 </div>

@@ -1,8 +1,12 @@
 <?php
 require_once('database.php');
-
-// Get products
-$queryDepartments = 'SELECT * FROM departments join schools on departments.School_ID=schools.School_ID';
+$querySchools = 'SELECT * FROM schools';
+$statement = $db->prepare($querySchools);
+$statement->execute();
+$schools = $statement->fetchAll();
+$statement->closeCursor();
+// Get departments
+$queryDepartments = 'SELECT * FROM departments join schools on departments.School_ID=schools.School_ID ORDER BY schools.School_Name';
 $statement = $db->prepare($queryDepartments);
 $statement->execute();
 $departments = $statement->fetchAll();
@@ -16,9 +20,12 @@ $statement->closeCursor();
     <p class="lead m-5">Here at DKIT we have different departments under different Schools.Each and every department has specialized staff and they help students in achiving their goals.</p>
   </div>
     <section>
-         
-
-            <?php foreach ($departments as $department) : ?>
+    <br>
+    <?php foreach ($schools as $school) : ?>
+    <h1 class="m-2 text-center"><?php echo $school['School_Name']; ?></h1>
+    <br>
+        <?php foreach ($departments as $department) : ?>
+          <?php if ($department['School_ID'] === $school['School_ID']) : ?>
                 <div class="card mt-auto" >
                 <div class="row ">
                 <div class="col-md-6 order-2 order-md-1">
@@ -27,7 +34,7 @@ $statement->closeCursor();
                 <div class="col-md-6 order-1 order-md-2">
                 <div class="card-body"> 
                 <h5 class="card-title text-right"><?php echo  $department['Department_Name']; ?> </h5>
-                <p class="card-text"> Phone:<?php echo  $department['Department_Phone']; ?> </p>
+                <p class="card-text">Phone:<?php echo  $department['Department_Phone']; ?> </p>
                 <p class="card-text">Email:<?php echo  $department['Department_Email']; ?> </p>
                 <p class="card-text">Head Of Department:<?php echo  $department['Department_Head']; ?> </p>
                 <p class="card-text">Year Of Establishment:<?php echo $department['Year_of_Establishment']; ?> </p>
@@ -35,8 +42,13 @@ $statement->closeCursor();
                 </div>
                 </div>
                 </div>
+               
+                <?php endif; ?>
+    <?php endforeach; ?>
+    </div>
+    <br>
             <?php endforeach; ?>
-            </div>
+            
     </section>
 
 </main><!-- /.container -->
