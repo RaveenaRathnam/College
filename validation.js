@@ -5,7 +5,7 @@ function fname_validation(){
     var fname_value = document.getElementById("fname").value;
     var fname_length = fname_value.length;
     var letters = /^[a-z ,.'-]+$/i ;
-    if(fname_length==0 || !fname_value.match(letters))
+    if(fname_length<3 || !fname_value.match(letters))
     {
     document.getElementById('fname_err').innerHTML = 'Please enter a valid first name.';
     fname_name.focus();
@@ -24,7 +24,7 @@ function fname_validation(){
         var lname_value = document.getElementById("lname").value;
         var lname_length = lname_value.length;
         var letters = /^[a-z ,.'-]+$/i ;
-        if(lname_length==0 || !lname_value.match(letters))
+        if(lname_length<3 || !lname_value.match(letters))
         {
         document.getElementById('lname_err').innerHTML = 'Please enter a valid last name.';
         lname_name.focus();

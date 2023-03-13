@@ -24,24 +24,39 @@ $headers .= 'From: '.$myemail."\r\n".
     'X-Mailer: PHP/' . phpversion();
 
 
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$email_address = $_POST['email'];
-$phone = $_POST['phone'];
-$address=isset($_POST['address']) ? $_POST['address'] : "No address.";
-$admissions = $_POST['admissions'];
-$gender =$_POST['gender'];
-$message = $_POST['message'];
-$updates = isset($_POST['updates']) ? $_POST['updates'] : '';
-$birthdate = $_POST['birthdate'];
-$resume = $_FILES['resume'];
-$tuition_budget = $_POST['tuition_budget'];
+// $fname = $_POST['fname'];
+// $lname = $_POST['lname'];
+// $email_address = $_POST['email'];
+//$phone = $_POST['phone'];
+//$address=isset($_POST['address']) ? $_POST['address'] : 'No address.';
+//$admissions = $_POST['admissions'];
+//$gender =$_POST['gender'];
+//$message = $_POST['message'];
+//$updates = isset($_POST['updates']) ? $_POST['updates'] : '';
+//$birthdate = $_POST['birthdate'];
+//$resume = $_FILES['resume'];
+//$tuition_budget = $_POST['tuition_budget'];
 
-// $fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
-// $lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
-// $email_address = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-// $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
-// $address = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+$fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+$lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+$email_address = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+$phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
+$address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+if ($address === null) {
+    $address = 'No address.';
+}
+$admissions = filter_input(INPUT_POST, 'admissions', FILTER_SANITIZE_STRING);
+$gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING );
+$message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+$updates = filter_input(INPUT_POST, 'updates', FILTER_SANITIZE_STRING);
+if ($updates === null) {
+    $updates = 'No updates.';
+}
+$birthdate = filter_input(INPUT_POST, 'birthdate', FILTER_SANITIZE_STRING);
+$resume = $_FILES['resume'];
+$tuition_budget = filter_input(INPUT_POST, 'tuition_budget', FILTER_SANITIZE_NUMBER_INT);
+
+
 if (!preg_match(
 "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",
 $email_address))
@@ -51,6 +66,12 @@ $email_address))
 }
 if (!preg_match('/^[0-9]{10}$/', $phone)) {
     $errors .= "\n Error: Invalid phone number";
+}
+if (!preg_match("/^[a-z ,.'-]+$/i", $fname)) {
+    $errors .= "\n Error: Invalid First name";
+}
+if (!preg_match("/^[a-z ,.'-]+$/i", $lname)) {
+    $errors .= "\n Error: Invalid Last name";
 }
 
 if( empty($errors))

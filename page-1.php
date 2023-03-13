@@ -11,7 +11,7 @@ $statement = $db->prepare($queryDepartments);
 $statement->execute();
 $departments = $statement->fetchAll();
 $statement->closeCursor();
-//print_r($products);
+ 
 ?>
 <?php include 'includes/header.php';?>
 <main class="container">

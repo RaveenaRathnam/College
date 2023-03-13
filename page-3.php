@@ -21,28 +21,28 @@
 
 <div class="col-md-6">
 <p>
-<label for='fname'class="form-label">First Name:</label><span id="fname_err"></span> <br>
+<span style="color:red;">*</span><label for='fname'class="form-label">First Name:</label><span id="fname_err"></span> <br>
 <input type="text" pattern="[a-zA-Z ,.'-]{1,32}" name="fname" id="fname" class="form-control" placeholder="John" aria-label="First name" required  onBlur="fname_validation();">
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
-<label for='lname'class="form-label">Last Name:</label><span id="lname_err"></span> <br>
+<span style="color:red;">*</span><label for='lname'class="form-label">Last Name:</label><span id="lname_err"></span> <br>
 <input type="text" pattern="[a-zA-Z ,.'-]{1,32}" name="lname"id="lname" class="form-control" placeholder="McDonnel" aria-label="Last name" required onBlur="lname_validation();">
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
-<label for='email'class="form-label">Email Address:</label><span id="email_err"></span><br>
+<span style="color:red;">*</span><label for='email'class="form-label">Email Address:</label><span id="email_err"></span><br>
 <input type="text"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" id="email" placeholder="john123@gmail.com"  class="form-control" required onBlur="email_validation();"> 
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
-<label for="phone"class="form-label">Phone:</label><span id="phone_err"></span>
+<span style="color:red;">*</span><label for="phone"class="form-label">Phone:</label><span id="phone_err"></span>
 <input type="tel" name="phone" id="phone" placeholder="1234567890" class="form-control" pattern="[0-9]{10}" required onBlur="phone_validation();"><br>
 </p>
 </div>
@@ -54,21 +54,21 @@
 
 <div class="col-md-6">
 <p>
-<label for="birthdate" class="form-label">Birthdate:</label><span id="birthdate_err"></span><br>
+<span style="color:red;">*</span><label for="birthdate" class="form-label">Birthdate:</label><span id="birthdate_err"></span><br>
 <input type="date" class="form-control" name="birthdate"  id="birthdate" required onBlur="birthdate_validation();"><br>
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
-<label for="resume" class="form-label">Upload Resume:</label><span id="resume_err"></span><br>
+<span style="color:red;">*</span><label for="resume" class="form-label">Upload Resume:</label><span id="resume_err"></span><br>
 <input type="file" class="form-control" name="resume" id="resume" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.documen,.pdf" onBlur="resume_validation();">	
 </p>
 </div>
 
 <div class="col-md-6">
 <p>
-<label for="admissions" class="form-label">Admissions:</label><span id="admissions_err"></span><br>
+<span style="color:red;">*</span><label for="admissions" class="form-label">Admissions:</label><span id="admissions_err"></span><br>
 <select name="admissions" id="admissions"class="form-select" aria-label="Default select example" required onBlur="admissions_validation();">
 <option value="">Choose an Option</option>
 <option value="Undergraduate Programs">Undergraduate Admissions</option>
@@ -81,7 +81,7 @@
 
 <div class="col-md-6">
 <!-- <fieldset class="col mb-6"> -->
-<label for="gender" >Gender:</label><br>
+<span style="color:red;">*</span><label for="gender" >Gender:</label><br>
 <div class="input-group">
 <div class="input-group-text">
 <input type="radio"  class="form-check-input mt-0" name="gender" id="gender" value="male" aria-label="Radio button for following text input" required>
