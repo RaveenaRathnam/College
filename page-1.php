@@ -22,6 +22,7 @@ $statement->closeCursor();
     <section>
     <br>
     <?php foreach ($schools as $school) : ?>
+      <div id="school_id<?php echo $school['School_ID']?>">
     <h1 class="m-2 text-center"><?php echo $school['School_Name']; ?></h1>
     <br>
         <?php foreach ($departments as $department) : ?>
@@ -42,7 +43,7 @@ $statement->closeCursor();
                 </div>
                 </div>
                 </div>
-               
+          </div>
                 <?php endif; ?>
     <?php endforeach; ?>
     </div>

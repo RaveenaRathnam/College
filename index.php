@@ -42,6 +42,7 @@ $statement->closeCursor();
   </button>
 </div>
 <br>
+<?php echo $error ?>
             <?php foreach ($schools as $school) : ?>
                 
                 <div class="card mt-auto" >
@@ -56,7 +57,7 @@ $statement->closeCursor();
                 <p class="card-text">Email:<?php echo $school['School_Email']; ?> </p>
                 <p class="card-text">Head Of School:<?php echo $school['School_Head']; ?>  </p>
                 <p class="card-text">Year Of Establishment<?php echo $school['Year_of_Establishment']; ?> </p>
-                <a href="page-1.php?q=2" class="btn btn-primary">View Departments</a>
+                <a href="page-1.php?#school_id<?php echo $school['School_ID']; ?>" class="btn btn-primary">View Departments</a>
                  </div>
                 </div>
                 </div>
