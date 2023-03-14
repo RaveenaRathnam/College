@@ -12,7 +12,9 @@ if(isset($_POST["search"])){
   $schools = $statement->fetchAll();
   $statement->closeCursor();
   if(count($schools) > 0){
-    foreach($schools as $school)
+    foreach($schools as $school){
+      
+    }
   }
   else {
     $error = 'Name Does not exist';

@@ -39,7 +39,7 @@ $statement->closeCursor();
                 <p class="card-text">Email:<?php echo  $department['Department_Email']; ?> </p>
                 <p class="card-text">Head Of Department:<?php echo  $department['Department_Head']; ?> </p>
                 <p class="card-text">Year Of Establishment:<?php echo $department['Year_of_Establishment']; ?> </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="page-2.php?#department_id<?php echo $department['Department_ID']; ?>" class="btn btn-primary">View Courses</a>
                 </div>
                 </div>
                 </div>

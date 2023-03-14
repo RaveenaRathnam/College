@@ -26,6 +26,7 @@ $statement->closeCursor();
     <section>
           <br> 
  <?php foreach ($departments as $department) : ?>
+  <div id="department_id<?php echo $department['Department_ID']?>">
     <h1 class="m-2 text-center"><?php echo $department['Department_Name']; ?></h1>
     <br>
             <?php foreach ($courses as $course) : ?>
@@ -42,6 +43,7 @@ $statement->closeCursor();
             <?php endforeach; ?>
             
             </div> 
+            </div>
              <br>
             <?php endforeach; ?>
             
