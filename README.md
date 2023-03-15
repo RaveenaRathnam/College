@@ -1,4 +1,4 @@
-# <a href="#" class="button big" style="color:Black">About Project</a>  [![Button 1](https://img.shields.io/badge/%22College_PHP%22-red.svg)](https://example.com/button1 "Tooltip Text")
+# About Project  [![Button 1](https://img.shields.io/badge/%22College_PHP%22-red.svg)](https://example.com/button1 "Tooltip Text")
  
 
 A college php project that is going to have a database.In this project ,I made a website for a college that shows the users the academic schools,the departments under each school and the courses under each department and also allows the users to send an application form through the contact-us form.The steps to open the
