@@ -27,7 +27,7 @@ $statement->closeCursor();
           <br> 
  <?php foreach ($departments as $department) : ?>
   <div id="department_id<?php echo $department['Department_ID']?>">
-    <h1 class="m-2 text-center"><?php echo $department['Department_Name']; ?></h1>
+    <h2 class="m-2 text-center" style="color:#0d6efd"><?php echo $department['Department_Name']; ?></h2>
     <br>
             <?php foreach ($courses as $course) : ?>
             <?php if ($course['Department_ID'] === $department['Department_ID']) : ?>
@@ -41,12 +41,13 @@ $statement->closeCursor();
             </div>
             <?php endif; ?>
             <?php endforeach; ?>
-            
-            </div> 
             </div>
+            </div> 
              <br>
             <?php endforeach; ?>
-            
+            <div class="text-center" style="font-weight:bold;font-size: 70px;margin: 50px;">
+<?php echo $error ?>
+</div>
     </section>
 
 </main><!-- /.container -->

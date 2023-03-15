@@ -23,7 +23,7 @@ $statement->closeCursor();
     <br>
     <?php foreach ($schools as $school) : ?>
       <div id="school_id<?php echo $school['School_ID']?>">
-    <h1 class="m-2 text-center"><?php echo $school['School_Name']; ?></h1>
+    <h1 class="m-2 text-center"style="color:#0d6efd"><?php echo $school['School_Name']; ?></h1>
     <br>
         <?php foreach ($departments as $department) : ?>
           <?php if ($department['School_ID'] === $school['School_ID']) : ?>
@@ -49,7 +49,9 @@ $statement->closeCursor();
     </div>
     <br>
             <?php endforeach; ?>
-            
+            <div class="text-center" style="font-weight:bold;font-size: 70px;margin: 50px;">
+<?php echo $error ?>
+</div>
     </section>
 
 </main><!-- /.container -->

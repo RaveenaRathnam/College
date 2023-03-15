@@ -42,9 +42,9 @@ $statement->closeCursor();
   </button>
 </div>
 <br>
-<?php echo $error ?>
+
+ 
             <?php foreach ($schools as $school) : ?>
-                
                 <div class="card mt-auto" >
                 <div class="row ">
                 <div class="col-md-6 order-2 order-md-1">
@@ -61,8 +61,12 @@ $statement->closeCursor();
                  </div>
                 </div>
                 </div>
+                <br>
             <?php endforeach; ?>
         </div>
+        <div class="text-center" style="font-weight:bold;font-size: 70px;margin: 50px;">
+<?php echo $error ?>
+</div>
     </section>
 
 </main><!-- /.container -->
